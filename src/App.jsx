@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './layout/Header';
 import PageContent from './layout/PageContent';
 import Footer from './layout/Footer';
@@ -10,10 +10,10 @@ const App = () => {
     <Router>
       <Header />
       <PageContent>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
           {/* Add more routes here */}
-        </Routes>
+        </Switch>
       </PageContent>
       <Footer />
     </Router>
