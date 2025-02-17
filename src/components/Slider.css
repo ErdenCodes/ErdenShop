@@ -1,0 +1,7 @@
+.slider-wrapper {
+  position: relative;
+}
+
+.slider-wrapper .slick-slider {
+  margin-top: 50px; /* Adjust this value as needed */
+}

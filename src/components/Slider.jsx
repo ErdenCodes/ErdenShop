@@ -1,23 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './Slider.css'; // Import the CSS file for styling
 
-const Slider = () => {
-  const [current, setCurrent] = useState(0);
-  const slides = [
-    'https://via.placeholder.com/800x300',
-    'https://via.placeholder.com/800x300',
-    'https://via.placeholder.com/800x300',
-  ];
-
-  const nextSlide = () => {
-    setCurrent((current + 1) % slides.length);
+const SliderComponent = ({ items = [] }) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
 
+  if (!items || items.length === 0) {
+    return <div>No items to display</div>;
+  }
+
   return (
-    <div className="relative">
-      <img src={slides[current]} alt="Slide" className="w-full h-64 object-cover" />
-      <button onClick={nextSlide} className="absolute top-1/2 right-4 bg-white p-2 rounded-full">Next</button>
+    <div className="slider-wrapper">
+      <Slider {...settings}>
+        {items.map((item, index) => (
+          <div key={index}>
+            <img src={item.image} alt={item.title} />
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };
 
-export default Slider;
+export default SliderComponent;
