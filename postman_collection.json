@@ -1,0 +1,43 @@
+{
+  "info": {
+    "name": "Shopfor API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Roles",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://workintech-fe-ecommerce.onrender.com/roles",
+          "protocol": "https",
+          "host": ["workintech-fe-ecommerce", "onrender", "com"],
+          "path": ["roles"]
+        }
+      }
+    },
+    {
+      "name": "Signup",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://workintech-fe-ecommerce.onrender.com/signup",
+          "protocol": "https",
+          "host": ["workintech-fe-ecommerce", "onrender", "com"],
+          "path": ["signup"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"\",\n  \"email\": \"\",\n  \"password\": \"\",\n  \"role_id\": \"\",\n  \"store\": {\n    \"name\": \"\",\n    \"phone\": \"\",\n    \"tax_no\": \"\",\n    \"bank_account\": \"\"\n  }\n}"
+        }
+      }
+    }
+  ]
+}

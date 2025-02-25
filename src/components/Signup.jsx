@@ -2,19 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import axios from 'axios';
 import './Signup.css'; // Import the CSS file for styling
+import { roles } from '../constants/roles'; // Import roles from constants
 
 const Signup = () => {
   const { register, handleSubmit, watch, control, formState: { errors } } = useForm();
-  const [roles, setRoles] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-
-  useEffect(() => {
-    axios.get('https://workintech-fe-ecommerce.onrender.com/roles')
-      .then(response => setRoles(response.data))
-      .catch(error => console.error('Error fetching roles:', error));
-  }, []);
 
   const onSubmit = data => {
     setIsSubmitting(true);
